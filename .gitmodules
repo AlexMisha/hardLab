@@ -1,0 +1,3 @@
+[submodule "hyphenator"]
+	path = hyphenator
+	url = https://github.com/mysolution/hyphenator
