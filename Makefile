@@ -10,7 +10,10 @@ $(TARGET):	$(OBJS)
 	$(CXX) -o $(TARGET) $(OBJS) $(LIBS)
 
 all:	
-	g++ src/cpp/*.cpp -I src/includes/ -o hardLab
+	g++ hyphenator/hyphenator.cpp src/cpp/*.cpp -I src/includes/ -I hyphenator/ -o hardLab
+
+transfer:
+	g++ -c src/cpp/transfer.cpp -I src/includes -I hyphenator/
 
 clean:
 	rm -f $(OBJS) $(TARGET)
