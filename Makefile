@@ -1,6 +1,6 @@
 CXXFLAGS =	-O2 -g -Wall -fmessage-length=0
 
-OBJS =		main.o caratsuba.o armstrong.o perfect.o morze.o transfer.o
+OBJS =		main.o caratsuba.o armstrong.o perfect.o morze.o transfer.o rules.o
 
 LIBS =
 

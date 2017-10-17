@@ -15,13 +15,14 @@
 #include "perfect.h"
 #include "morze.h"
 #include "transfer.h"
+#include "rules.h"
 
 using namespace std;
 
 void usage();
 
 int main(int argc, char *argv[]) {
-	const char *options = "h?kapmt";
+	const char *options = "h?kapmtr";
 	int resultCode = EXIT_SUCCESS;
 
 	int c = getopt(argc, argv, options);
@@ -45,6 +46,9 @@ int main(int argc, char *argv[]) {
 		if (c == 't') {
 			resultCode = transfer();
 		}
+		if (c == 'r') {
+			resultCode = rules();
+		}
 	} else {
 		cout << "No operation was selected" << endl
 				<< "Use -h to see available operations" << endl;
@@ -64,4 +68,5 @@ void usage() {
 	cout << "\t -p Perfect" << endl;
 	cout << "\t -m Morze" << endl;
 	cout << "\t -t Transfer" << endl;
+	cout << "\t -r Rules" << endl;
 }
