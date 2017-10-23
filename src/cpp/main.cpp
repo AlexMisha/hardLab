@@ -16,13 +16,14 @@
 #include "morze.h"
 #include "transfer.h"
 #include "rules.h"
+#include "bracket.h"
 
 using namespace std;
 
 void usage();
 
 int main(int argc, char *argv[]) {
-	const char *options = "h?kapmtr";
+	const char *options = "h?kapmtrb";
 	int resultCode = EXIT_SUCCESS;
 
 	int c = getopt(argc, argv, options);
@@ -49,6 +50,9 @@ int main(int argc, char *argv[]) {
 		if (c == 'r') {
 			resultCode = rules();
 		}
+		if (c == 'b') {
+			resultCode = bracket();
+		}
 	} else {
 		cout << "No operation was selected" << endl
 				<< "Use -h to see available operations" << endl;
@@ -69,4 +73,5 @@ void usage() {
 	cout << "\t -m Morze" << endl;
 	cout << "\t -t Transfer" << endl;
 	cout << "\t -r Rules" << endl;
+	cout << "\t -b Brackets" << endl;
 }
