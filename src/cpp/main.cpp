@@ -17,13 +17,14 @@
 #include "transfer.h"
 #include "rules.h"
 #include "bracket.h"
+#include "neighbors.h"
 
 using namespace std;
 
 void usage();
 
 int main(int argc, char *argv[]) {
-	const char *options = "h?kapmtrb";
+	const char *options = "h?kapmtrbn";
 	int resultCode = EXIT_SUCCESS;
 
 	int c = getopt(argc, argv, options);
@@ -53,6 +54,9 @@ int main(int argc, char *argv[]) {
 		if (c == 'b') {
 			resultCode = bracket();
 		}
+		if (c == 'n') {
+			resultCode = neighbors();
+		}
 	} else {
 		cout << "No operation was selected" << endl
 				<< "Use -h to see available operations" << endl;
@@ -74,4 +78,5 @@ void usage() {
 	cout << "\t -t Transfer" << endl;
 	cout << "\t -r Rules" << endl;
 	cout << "\t -b Brackets" << endl;
+	cout << "\t -n Neighbors" << endl;
 }
