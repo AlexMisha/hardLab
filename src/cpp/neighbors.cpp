@@ -11,45 +11,49 @@
 
 using namespace std;
 
-/**
- * Ѕерем €чейку матрицы, не наход€щуюс€ с краю
- ѕо горизонтали и вертикали у нее 4 соседа
- Ёто значит что нам нужно иметь минимум 5 разных чисел, чтобы заполнить матрицу требуемым образом без учета диагоналей
- ј у нас только 4 разных числа
-
- ¬ывод - задача не имеет решени€ дл€ произвольной матрицы
- */
-
 int neighbors() {
-	int a[4][4], n, k, l;
+	const int max = 4;
+	int digits1[max] = { 1, 2, 3, 4 };
+	int digits2[max] = { 3, 4, 1, 2 };
+	int * p;
 
-	cout << "Input n" << endl;
-	cin >> n;
-	cout << endl;
-	cout << "Matrix:" << endl;
+	int rows, cols;
+	int i, j, k;
 
-	for (k = 0; k < n; k++) {
-		for (l = 0; l < n; l++) {
-			switch ((k + l) % 4) {
-			case 0:
-				a[k][l] = 1;
-				break;
-			case 1:
-				a[k][l] = 2;
-				break;
-			case 2:
-				a[k][l] = 3;
-				break;
-			case 3:
-				a[k][l] = 4;
-				break;
-			default:
-				a[k][l] = 2;
+	cout << "Enter rows: ";
+	cin >> rows;
+	cout << "Enter cols: ";
+	cin >> cols;
+
+	int ** matrix = new int *[rows];
+	for (int i = 0; i < rows; ++i) {
+		matrix[i] = new int[cols];
+	}
+
+	for (int i = 0; i < rows; ++i) {
+		k = 0;
+		p = i % 2 ? digits2 : digits1;
+
+		for (int j = 0; j < cols; ++j) {
+			matrix[i][j] = p[k++];
+
+			if (k > max - 1) {
+				k = 0;
 			}
-			cout << "   " << a[k][l] << "   ";
+		}
+	}
+
+	for (int i = 0; i < rows; ++i) {
+		for (int j = 0; j < cols; ++j) {
+			cout << matrix[i][j] << " ";
 		}
 		cout << endl;
 	}
+
+	for (int i = 0; i < rows; ++i) {
+		delete[] matrix[i];
+	}
+	delete[] matrix;
 
 	return EXIT_SUCCESS;
 }

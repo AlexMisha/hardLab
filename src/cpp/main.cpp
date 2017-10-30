@@ -18,13 +18,14 @@
 #include "rules.h"
 #include "bracket.h"
 #include "neighbors.h"
+#include "smoothing.h"
 
 using namespace std;
 
 void usage();
 
 int main(int argc, char *argv[]) {
-	const char *options = "h?kapmtrbn";
+	const char *options = "h?kapmtrbns";
 	int resultCode = EXIT_SUCCESS;
 
 	int c = getopt(argc, argv, options);
@@ -57,6 +58,9 @@ int main(int argc, char *argv[]) {
 		if (c == 'n') {
 			resultCode = neighbors();
 		}
+		if (c == 's') {
+			resultCode = smoothing();
+		}
 	} else {
 		cout << "No operation was selected" << endl
 				<< "Use -h to see available operations" << endl;
@@ -79,4 +83,5 @@ void usage() {
 	cout << "\t -r Rules" << endl;
 	cout << "\t -b Brackets" << endl;
 	cout << "\t -n Neighbors" << endl;
+	cout << "\t -s Smoothing" << endl;
 }
