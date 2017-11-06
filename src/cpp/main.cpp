@@ -20,13 +20,14 @@
 #include "neighbors.h"
 #include "smoothing.h"
 #include "min.h"
+#include "magic.h"
 
 using namespace std;
 
 void usage();
 
 int main(int argc, char *argv[]) {
-	const char *options = "h?kapmtrbnsl";
+	const char *options = "h?kapmtrbnslq";
 	int resultCode = EXIT_SUCCESS;
 
 	int c = getopt(argc, argv, options);
@@ -65,6 +66,9 @@ int main(int argc, char *argv[]) {
 		if (c == 'l') {
 			resultCode = min();
 		}
+		if (c == 'q') {
+			resultCode = magic();
+		}
 	} else {
 		cout << "No operation was selected" << endl
 				<< "Use -h to see available operations" << endl;
@@ -89,4 +93,5 @@ void usage() {
 	cout << "\t -n Neighbors" << endl;
 	cout << "\t -s Smoothing" << endl;
 	cout << "\t -l Minimum" << endl;
+	cout << "\t -q Magic" << endl;
 }
