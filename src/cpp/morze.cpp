@@ -29,8 +29,7 @@ int morze() {
 					"......" }, { ',', ".-.-.-" }, { ':', "---..." }, { ';',
 					"-.-.-." }, { '(', "-.--.-" }, { ')', "-.--.-" }, { '"',
 					".-..-." }, { '-', "-....-" }, { '/', "-..-." }, { '?',
-					"..--.." }, { '!', "--..--" }, { ' ', "-...-" }, { '@',
-					".--.-." }, };
+					"..--.." }, { '!', "--..--" }, { '@', ".--.-." }, };
 	string text;
 
 	cout << "Type text to transform" << endl;
@@ -43,10 +42,8 @@ int morze() {
 			text[i] = tolower(text[i]);
 			cout << morze.find(text[i])->second << "  ";
 		}
-		cout << morze.find(' ')->second << "  ";
+		//cout << morze.find(' ')->second << "  ";
 	}
-
-	return 0;
 
 	return EXIT_SUCCESS;
 }
