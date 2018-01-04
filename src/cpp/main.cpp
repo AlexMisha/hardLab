@@ -22,13 +22,14 @@
 #include "min.h"
 #include "magic.h"
 #include "transparency.h"
+#include "algo.h"
 
 using namespace std;
 
 void usage();
 
 int main(int argc, char *argv[]) {
-	const char *options = "h?kapmtrbnslqd";
+	const char *options = "h?kapmtrbnslqdg";
 	int resultCode = EXIT_SUCCESS;
 
 	int c = getopt(argc, argv, options);
@@ -73,6 +74,9 @@ int main(int argc, char *argv[]) {
 		if (c == 'd') {
 			resultCode = transparency();
 		}
+		if (c == 'g') {
+			resultCode = algo();
+		}
 	} else {
 		cout << "No operation was selected" << endl
 				<< "Use -h to see available operations" << endl;
@@ -99,4 +103,5 @@ void usage() {
 	cout << "\t -l Minimum" << endl;
 	cout << "\t -q Magic" << endl;
 	cout << "\t -d Transparency" << endl;
+	cout << "\t -g Algo" << endl;
 }
